@@ -1,7 +1,3 @@
-function ToDoList() {
-	this.counter = 0;
-}
-
 var counter = 0; 
 
 function add() {
@@ -9,17 +5,26 @@ function add() {
 	counter++;
 	var value = document.getElementById('newItem').value;
 
-	createTask(id, value);
+	var emptyTest = value.trim();
+	if (emptyTest == "") {
+		alert("yo");
+	}
+	else {
+		createTask(id, value);
+	}
 
-	//resetting
+	resetForm();
+}
+
+function resetForm() {
 	document.getElementById('newItem').value = "";
 	document.getElementById('newItem').focus();
-
 }
 
 function createTask(id, value) {
 	var outerdiv = document.getElementById("container");
 	var div = document.createElement("div");
+	div.className = "task";
 	div.id = id;
 
 	var input = document.createElement("input");
@@ -29,6 +34,7 @@ function createTask(id, value) {
 	label.appendChild(document.createTextNode(" " + value));
 
 	var delbutton = document.createElement("button");
+	delbutton.className = "delete";
 	delbutton.innerHTML = "delete";
 	delbutton.onclick = function() {deleteTask(id)};
 
@@ -36,11 +42,6 @@ function createTask(id, value) {
 	div.appendChild(label);
 	div.appendChild(delbutton);
 	outerdiv.appendChild(div);
-}
-
-function Item(index, task) {
-	this.id = index;
-	this.content = task;
 }
 
 function deleteTask(id) {
@@ -55,5 +56,11 @@ function handleEnter(event) {
 		//list.add();
 }
 
-var list = new ToDoList();
+// function ToDoList() {
+// 	this.counter = 0;
+// }
 
+// function Item(index, task) {
+// 	this.id = index;
+// 	this.content = task;
+// }

@@ -1,0 +1,40 @@
+body {
+	font-family: Helvetica;
+	font-size: 15pt;
+	background-color: #DCF0F7;
+}
+
+div#container {
+	height: 200px;
+	width: 300px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #FFFFFF;
+	overflow: scroll;
+}
+
+h1 {
+	font-size: 40pt;
+	text-align: center;
+}
+
+input {
+}
+
+button {
+	background-color: #FFFFFF;
+	border: 1px solid #000000;
+}
+
+button.delete {
+	float: right;
+	display: none;
+}
+
+div.task:hover .delete{
+	display: block;
+}
+
+form {
+	text-align: center;
+}
