@@ -16,9 +16,7 @@ div#container {
 h1 {
 	font-size: 40pt;
 	text-align: center;
-}
-
-input {
+	margin-bottom: 0px;
 }
 
 button {
@@ -31,10 +29,34 @@ button.delete {
 	display: none;
 }
 
+div#total {
+	background-color: #EEEEEE;
+	text-align: center;
+}
+
+div.task {
+	border-bottom: 1px solid #C0C0C0;
+}
+
 div.task:hover .delete{
 	display: block;
 }
 
 form {
+	margin-top: 10px;
 	text-align: center;
+}
+
+#newItem {
+	width: 225px;
+	background-color: #FFFFFF;
+	border: 1px solid #000000;
+}
+
+label.strike {
+	text-decoration: line-through;
+}
+
+label.normal {
+	text-decoration: none;
 }
