@@ -9,13 +9,12 @@
  
   <body>
     <h1>To Do List</h1>
-    <ul id="list">
-      <li>sample</li>
-    </ul>
-    <form>
+    <div id="container">
+    </div>
 
+    <form>
     Item: <input type="item" name="item" id="newItem" onkeydown="handleEnter(event)" autofocus>
-    <button type="button" onclick="list.add()" id="addTask">Add</button>
+    <button type="button" onclick="add()" id="addTask">Add</button>
     </form> 
   </body>
 </html>
