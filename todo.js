@@ -1,5 +1,6 @@
 var uniqueId = 0; 
 var numItems = 0;
+var checked = {};
 
 function addTask() {
 
@@ -30,25 +31,35 @@ function createTask(value) {
 	var input = document.createElement("input");
 	input.id = "input" + uniqueId;
 	input.type = "checkbox";
-	input.onclick = function() {
-		var idNum = getId(this.id);
-		var label = document.getElementById("label" + idNum);
-		label.className = this.checked ? "strike" : "normal";
-	};
+	input.onclick = check;
 
 	var label = document.createElement("label");
 	label.id = "label" + uniqueId;
 	label.appendChild(document.createTextNode(" " + value));
 
-	var delbutton = document.createElement("button");
-	delbutton.className = "delete";
-	delbutton.innerHTML = "delete";
-	delbutton.onclick = function() {deleteTask(div.id)};
+	// var delbutton = document.createElement("button");
+	// delbutton.className = "delete";
+	// delbutton.innerHTML = "delete";
+	// delbutton.onclick = function() {deleteTask(div.id)};
 
 	div.appendChild(input);
 	div.appendChild(label);
-	div.appendChild(delbutton);
+	//div.appendChild(delbutton);
 	outerdiv.appendChild(div);
+}
+
+var check = function() {
+	var idNum = getId(this.id);
+	var label = document.getElementById("label" + idNum);
+	if (this.checked) {
+		label.className = "strike"
+		checked[idNum] = true;
+	}
+	else {
+		label.className = "normal"
+		delete checked[idNum];
+	}
+
 }
 
 function deleteTask(id) {
@@ -58,6 +69,22 @@ function deleteTask(id) {
 	numItems--;
 	updateTaskTotal();
 }
+
+function deleteTasks() {
+	// find all checked tasks
+	var outerdiv = document.getElementById("container");
+	for (id in checked) {
+		var child = document.getElementsById("item" + id));
+		outerdiv.removeChild(child);
+		numItems--;
+	}
+	updateTaskTotal();
+}
+
+// function checkAll() {
+
+// }
+
 
 function getId(id_string) {
 	return id_string.charAt(id_string.length - 1);
