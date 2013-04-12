@@ -9,12 +9,17 @@
  
   <body>
     <h1>To Do List</h1>
-    <div id="container" name="list">
-      <div id="titleBar"><input id="checkAll" type="checkbox"><label id="taskTotal">0 tasks</label><input type="image" id="trash" src="img/trash.gif"></div>
-    </div>
+      <div id="big">
+        <div id="titleBar">
+          <input id="checkAll" type="checkbox" onclick="checkAll(this)">
+          <label id="taskTotal">0 tasks</label>
+          <button type="button" id="trash" onclick="deleteTasks()"><img src="img/trash.gif"></button>
+        </div>
+        <div id="container" name="list"></div>
+      </div>
 
     <form>
-    <input type="text" name="newTask"id="newTask" value="enter a task" onclick="checkFirst()" onkeydown="handleEnter(event)" autofocus><BR>
+    <input type="text" name="newTask"id="newTask" value="enter a task" onclick="checkFirst()" onkeydown="handleEnter(event)" autofocus><br>
     <button type="button" name="addButton" id="addButton" onclick="addTask()">Add Task</button>
     </form> 
   </body>

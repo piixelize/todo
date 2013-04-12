@@ -10,28 +10,32 @@ h1 {
 	margin-bottom: 0px;
 }
 
-div#container {
-	height: 200px;
+div#big {
 	width: 300px;
 	margin-right: auto;
 	margin-left: auto;
+}
+
+div#container {
+	height: 200px;
 	background-color: #FFFFFF;
-	overflow: scroll;
-}
-
-input#checkAll {
-	float: left;
-}
-
-input#trash {
-	float: right;
-	padding-right:5px;
-	padding-top:2px;
+	overflow-y: scroll;
+	width: 100%;
 }
 
 div#titleBar {
 	background-color: #EEEEEE;
 	text-align: center;
+}
+input#checkAll {
+	float: left;
+	margin-top: 7px;
+}
+
+button#trash {
+	float: right;
+	background-color: transparent;
+	border: none;
 }
 
 div.task {
@@ -58,11 +62,6 @@ form {
 button {
 	background-color: #FFFFFF;
 	border: 1px solid #000000;
-}
-
-button.delete {
-	float: right;
-	display: none;
 }
 
 #addButton {

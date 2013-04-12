@@ -1,5 +1,5 @@
 var uniqueId = 0; 
-var numItems = 0;
+var numTasks = 0;
 var checked = {};
 
 function addTask() {
@@ -10,7 +10,7 @@ function addTask() {
 	if (emptyTest) {
 		createTask(value);
 		uniqueId++;
-		numItems++;
+		numTasks++;
 		updateTaskTotal();
 	}
 
@@ -26,32 +26,29 @@ function createTask(value) {
 	var outerdiv = document.getElementById("container");
 	var div = document.createElement("div");
 	div.className = "task";
-	div.id = "item" + uniqueId;
+	div.id = "task_" + uniqueId;
 
 	var input = document.createElement("input");
-	input.id = "input" + uniqueId;
+	input.id = "input_" + uniqueId;
 	input.type = "checkbox";
-	input.onclick = check;
+	input.className = "taskCheckbox"
+	input.onclick = function() {
+		check(this); // how does this work?
+	};
 
 	var label = document.createElement("label");
-	label.id = "label" + uniqueId;
+	label.id = "label_" + uniqueId;
 	label.appendChild(document.createTextNode(" " + value));
-
-	// var delbutton = document.createElement("button");
-	// delbutton.className = "delete";
-	// delbutton.innerHTML = "delete";
-	// delbutton.onclick = function() {deleteTask(div.id)};
 
 	div.appendChild(input);
 	div.appendChild(label);
-	//div.appendChild(delbutton);
 	outerdiv.appendChild(div);
 }
 
-var check = function() {
-	var idNum = getId(this.id);
-	var label = document.getElementById("label" + idNum);
-	if (this.checked) {
+function check(checkbox) {
+	var idNum = getId(checkbox.id);
+	var label = document.getElementById("label_" + idNum);
+	if (checkbox.checked) {
 		label.className = "strike"
 		checked[idNum] = true;
 	}
@@ -62,32 +59,32 @@ var check = function() {
 
 }
 
-function deleteTask(id) {
-	var div = document.getElementById(id);
-	var outerdiv = document.getElementById("container");
-	outerdiv.removeChild(div);
-	numItems--;
-	updateTaskTotal();
+function checkAll(checkAllBox) {
+	var taskDivs = document.getElementsByClassName("task");
+	for (var i = 0; i < numTasks; i++) {
+		var checkbox = taskDivs[i].childNodes[0];
+		checkbox.checked = checkAllBox.checked;
+		check(checkbox);
+	}
 }
 
 function deleteTasks() {
-	// find all checked tasks
+	console.log(checked);
 	var outerdiv = document.getElementById("container");
-	for (id in checked) {
-		var child = document.getElementsById("item" + id));
+	for (var id in checked) {
+		var child = document.getElementById("task_" + id);
 		outerdiv.removeChild(child);
-		numItems--;
+		numTasks--;
 	}
+	checked = {};
 	updateTaskTotal();
+	var checkAllBox = document.getElementById("checkAll");
+	checkAllBox.checked = false;
 }
 
-// function checkAll() {
-
-// }
-
-
-function getId(id_string) {
-	return id_string.charAt(id_string.length - 1);
+function getId(idString) {
+	var parts = idString.split("_");
+	return parts[1];
 }
 
 function handleEnter(event) {
@@ -106,14 +103,5 @@ function checkFirst() {
 
 function updateTaskTotal() {
 	var total = document.getElementById("taskTotal");
-	total.innerHTML = numItems + " task(s)";
+	total.innerHTML = numTasks + " task(s)";
 }
-
-// function ToDoList() {
-// 	this.counter = 0;
-// }
-
-// function Item(index, task) {
-// 	this.id = index;
-// 	this.content = task;
-// }
