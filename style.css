@@ -19,7 +19,17 @@ div#container {
 	overflow: scroll;
 }
 
-div#taskTotal {
+input#checkAll {
+	float: left;
+}
+
+input#trash {
+	float: right;
+	padding-right:5px;
+	padding-top:2px;
+}
+
+div#titleBar {
 	background-color: #EEEEEE;
 	text-align: center;
 }
