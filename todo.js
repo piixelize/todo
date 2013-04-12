@@ -64,9 +64,17 @@ function getId(id_string) {
 }
 
 function handleEnter(event) {
-	if (event.keyCode == 13) 
-		alert("hi");
-		//list.add();
+	if (event.keyCode == 13) {
+		event.preventDefault();
+		addTask();
+	}
+}
+
+function checkFirst() {
+	var form = document.getElementById("newItem");
+	if (form.value == "enter a task") {
+		form.value = "";
+	}
 }
 
 function updateTaskTotal() {

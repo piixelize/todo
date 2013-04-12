@@ -48,10 +48,25 @@ form {
 }
 
 #newItem {
-	width: 225px;
+	height: 30px;
+	width: 300px;
+	margin-bottom: 10px;
 	background-color: #FFFFFF;
-	border: 1px solid #000000;
+	border: 1px solid #DCF0F7;
+	font-family: Helvetica;
+	font-weight:bold;
+	font-size:18pt;
 }
+
+#add {
+	background-color: #eeeeee;
+	border: 1px solid #ffffff;
+	padding-bottom:5px;
+	height:30px;
+	width: 300px;
+	font-size:15pt;
+}
+
 
 label.strike {
 	text-decoration: line-through;

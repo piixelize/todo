@@ -14,8 +14,8 @@
     </div>
 
     <form>
-    <input type="item" name="item" id="newItem" onkeydown="handleEnter(event)" autofocus>
-    <button type="button" onclick="addTask()">Add</button>
+    <input type="item" name="item" id="newItem" value="enter a task" onclick="checkFirst()" onkeydown="handleEnter(event)" autofocus><BR>
+    <button type="button" id="add" onclick="addTask()">Add Task</button>
     </form> 
   </body>
 </html>
