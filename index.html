@@ -3,24 +3,20 @@
   <head>
   <meta charset="UTF-8">
   <title>To Do List</title>
+  <meta name="viewport" content="width=device-width">
   <link rel="stylesheet" href="style.css">
   <script src="todo.js"></script>
   </head>
  
   <body>
     <h1>To Do List</h1>
-      <div id="big">
-        <div id="titleBar">
-          <input id="checkAll" type="checkbox" onclick="checkAll(this)">
-          <label id="taskTotal">0 tasks</label>
-          <button type="button" id="trash" onclick="deleteTasks()"><img src="img/trash.gif"></button>
-        </div>
-        <div id="container" name="list"></div>
-      </div>
-
-    <form>
+    <div id="titleBar">
+      <input id="checkAll" type="checkbox" onclick="checkAll(this)">
+      <label id="taskTotal">0 tasks</label>
+      <button type="button" id="trash" onclick="deleteTasks()"><img src="img/trash.gif"></button>
+    </div>
+    <div id="container" name="list"></div>
     <input type="text" name="newTask"id="newTask" value="enter a task" onclick="checkFirst()" onkeydown="handleEnter(event)" autofocus><br>
     <button type="button" name="addButton" id="addButton" onclick="addTask()">Add Task</button>
-    </form> 
   </body>
 </html>

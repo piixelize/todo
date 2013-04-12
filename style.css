@@ -1,26 +1,28 @@
+html, body {
+	height: 100%;
+	overflow: hidden;
+}
+
 body {
 	font-family: Helvetica;
 	font-size: 15pt;
 	background-color: #DCF0F7;
+	display: -webkit-box;
+	-webkit-box-orient: vertical;
+	-webkit-box-align: stretch;
 }
 
 h1 {
+	margin: 0px;
 	font-size: 40pt;
 	text-align: center;
-	margin-bottom: 0px;
-}
-
-div#big {
-	width: 300px;
-	margin-right: auto;
-	margin-left: auto;
 }
 
 div#container {
-	height: 200px;
 	background-color: #FFFFFF;
 	overflow-y: scroll;
 	width: 100%;
+	-webkit-box-flex:1;
 }
 
 div#titleBar {
@@ -54,29 +56,26 @@ label.normal {
 	text-decoration: none;
 }
 
-form {
-	margin-top: 10px;
-	text-align: center;
-}
-
 button {
 	background-color: #FFFFFF;
 	border: 1px solid #000000;
 }
 
 #addButton {
+	margin-top: 10px;
+	height: auto;
 	background-color: #eeeeee;
 	border: 1px solid #ffffff;
-	padding-bottom:5px;
-	height:30px;
-	width: 300px;
+	height: auto;
+	width: 100%;
 	font-size:15pt;
+	margin-bottom: 20px;
 }
 
 #newTask {
-	height: 30px;
-	width: 300px;
-	margin-bottom: 10px;
+	margin-top: 10px;
+	height: auto;
+	width: 100%;
 	background-color: #FFFFFF;
 	border: 1px solid #DCF0F7;
 	font-family: Helvetica;
