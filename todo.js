@@ -55,6 +55,8 @@ function check(checkbox) {
 	else {
 		label.className = "normal"
 		delete checked[idNum];
+		var checkAllBox = document.getElementById("checkAll");
+		checkAllBox.checked = false;
 	}
 
 }
@@ -79,7 +81,6 @@ function deleteTasks() {
 	checked = {};
 	updateTaskTotal();
 	var checkAllBox = document.getElementById("checkAll");
-	checkAllBox.checked = false;
 }
 
 function getId(idString) {
