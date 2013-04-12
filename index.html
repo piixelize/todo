@@ -9,13 +9,13 @@
  
   <body>
     <h1>To Do List</h1>
-    <div id="container">
-      <div id="total">0 tasks</div>
+    <div id="container" name="list">
+      <div id="taskTotal">0 tasks</div>
     </div>
 
     <form>
-    <input type="item" name="item" id="newItem" value="enter a task" onclick="checkFirst()" onkeydown="handleEnter(event)" autofocus><BR>
-    <button type="button" id="add" onclick="addTask()">Add Task</button>
+    <input type="text" name="newTask" id="newTask" value="enter a task" onclick="checkFirst()" onkeydown="handleEnter(event)" autofocus><BR>
+    <button type="button" name="addButton" id="addButton" onclick="addTask()">Add Task</button>
     </form> 
   </body>
 </html>

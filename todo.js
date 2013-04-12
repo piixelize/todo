@@ -3,7 +3,7 @@ var numItems = 0;
 
 function addTask() {
 
-	var value = document.getElementById('newItem').value;
+	var value = document.getElementById('newTask').value;
 
 	var emptyTest = value.trim();
 	if (emptyTest) {
@@ -17,8 +17,8 @@ function addTask() {
 }
 
 function resetForm() {
-	document.getElementById('newItem').value = "";
-	document.getElementById('newItem').focus();
+	document.getElementById('newTask').value = "";
+	document.getElementById('newTask').focus();
 }
 
 function createTask(value) {
@@ -43,7 +43,7 @@ function createTask(value) {
 	var delbutton = document.createElement("button");
 	delbutton.className = "delete";
 	delbutton.innerHTML = "delete";
-	delbutton.onclick = function() {deleteTask(div.id)}; // why is wrapper needed here?
+	delbutton.onclick = function() {deleteTask(div.id)};
 
 	div.appendChild(input);
 	div.appendChild(label);
@@ -71,14 +71,14 @@ function handleEnter(event) {
 }
 
 function checkFirst() {
-	var form = document.getElementById("newItem");
+	var form = document.getElementById("newTask");
 	if (form.value == "enter a task") {
 		form.value = "";
 	}
 }
 
 function updateTaskTotal() {
-	var total = document.getElementById("total");
+	var total = document.getElementById("taskTotal");
 	total.innerHTML = numItems + " task(s)";
 }
 
